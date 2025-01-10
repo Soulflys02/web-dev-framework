@@ -42,6 +42,11 @@ services:
     build: ./backend
     restart: always
     command: sh -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /usr/src/app
     env_file:
       - .env
     ports:
