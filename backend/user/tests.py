@@ -14,7 +14,6 @@ class UserAPITest(APITestCase):
             'first_name': 'firstName',
             'last_name': 'lastName',
         }
-
     
     def test_register_user(self):
         """
