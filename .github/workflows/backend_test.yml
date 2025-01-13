@@ -8,11 +8,13 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Create env file
+        run: |
+          touch .env
+          echo MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}} >> .env
+          cat .env
       - name: Docker
         run: docker compose up -d
