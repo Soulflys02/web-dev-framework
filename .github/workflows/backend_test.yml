@@ -16,5 +16,7 @@ jobs:
           touch .env
           echo MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}} >> .env
           cat .env
-      - name: Docker
+      - name: Run docker
         run: docker compose up -d
+      - name: Run test
+        run: docker exec -it backend python manage.py test
