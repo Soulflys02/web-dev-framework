@@ -19,4 +19,4 @@ jobs:
       - name: Run docker
         run: docker compose up -d
       - name: Run test
-        run: docker exec -it backend python manage.py test
+        run: docker exec backend python manage.py test
