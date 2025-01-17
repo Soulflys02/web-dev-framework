@@ -17,6 +17,4 @@ jobs:
           echo MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}} >> .env
           cat .env
       - name: Run docker
-        run: docker compose up -d
-      - name: Run test
-        run: docker exec backend python manage.py test
+        run: docker compose run backend python manage.py test
