@@ -18,4 +18,4 @@ jobs:
           echo MYSQL_DATABSE: project_name >> .env
           cat .env
       - name: Run docker
-        run: docker compose run backend python manage.py runserver
+        run: docker compose run backend python manage.py test
